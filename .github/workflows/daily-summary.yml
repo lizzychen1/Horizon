@@ -2,8 +2,7 @@ name: Daily Horizon Summary
 
 on:
   schedule:
-    # GitHub scheduled workflows use UTC. 20:00 UTC is 04:00 Asia/Shanghai;
-    # this intentionally runs early to offset the observed schedule delay.
+    # GitHub scheduled workflows use UTC. 22:00 UTC ~= 06:00 Asia/Shanghai.
     - cron: '0 22 * * *'
   workflow_dispatch:      # Allow manual trigger
 
@@ -25,16 +24,25 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v6
 
-      - name: Install dependencies
-        run: uv sync
+      - name: Install dependencies (with Twitter extra)
+        run: uv sync --extra twitter
+
+      - name: Install Playwright Chromium
+        run: uv run playwright install --with-deps chromium
 
       - name: Prepare GitHub Actions config
         run: cp data/config.github.json data/config.json
 
+      - name: Write X cookies for Playwright
+        env:
+          X_COOKIES: ${{ secrets.X_COOKIES }}
+        run: |
+          mkdir -p data
+          printf '%s' "$X_COOKIES" > data/x_cookies_1.json
+
       - name: Run Horizon
         env:
           # Map secrets to environment variables expected by config.json
-          # Modify these based on your data/config.github.json provider settings
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
