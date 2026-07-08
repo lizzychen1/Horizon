@@ -119,7 +119,8 @@
       ]
     },
     "twitter": {
-      "enabled": false,
+      "enabled": true,
+      "mode": "playwright",
       "users": [
         "precis0x",
         "zjp1997720"
