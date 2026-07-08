@@ -9,8 +9,7 @@
     "max_tokens": 8192,
     "throttle_sec": 1,
     "languages": [
-      "zh",
-      "en"
+      "zh"
     ],
     "analysis_concurrency": 5,
     "enrichment_concurrency": 5
@@ -24,27 +23,27 @@
       },
       {
         "type": "repo_releases",
-        "owner": "vllm-project",
-        "repo": "vllm",
+        "owner": "langchain-ai",
+        "repo": "langchain",
         "enabled": true
       },
       {
         "type": "repo_releases",
-        "owner": "sgl-project",
-        "repo": "sglang",
+        "owner": "langgenius",
+        "repo": "dify",
         "enabled": true
       },
       {
         "type": "repo_releases",
-        "owner": "triton-lang",
-        "repo": "triton",
+        "owner": "comfyanonymous",
+        "repo": "ComfyUI",
         "enabled": true
       }
     ],
     "hackernews": {
       "enabled": true,
       "fetch_top_stories": 30,
-      "min_score": 150
+      "min_score": 100
     },
     "rss": [
       {
@@ -60,36 +59,50 @@
         "category": "github-trending"
       },
       {
-        "name": "Semianalysis",
-        "url": "https://newsletter.semianalysis.com/feed",
+        "name": "Hugging Face Blog",
+        "url": "https://huggingface.co/blog/feed.xml",
         "enabled": true,
-        "category": "semiconductors"
+        "category": "ai-models"
       },
       {
-        "name": "LWN.net",
-        "url": "https://lwn.net/headlines/full_text?key=${LWN_KEY}",
+        "name": "TechCrunch",
+        "url": "https://techcrunch.com/feed/",
         "enabled": true,
-        "category": "linux-kernel"
+        "category": "tech-startups"
+      },
+      {
+        "name": "The Verge",
+        "url": "https://www.theverge.com/rss/index.xml",
+        "enabled": true,
+        "category": "tech-news"
       }
     ],
     "reddit": {
       "enabled": true,
       "subreddits": [
         {
-          "subreddit": "MachineLearning",
-          "enabled": true,
-          "sort": "hot",
-          "time_filter": "day",
-          "fetch_limit": 10,
-          "min_score": 60
-        },
-        {
           "subreddit": "LocalLLaMA",
           "enabled": true,
           "sort": "hot",
           "time_filter": "day",
           "fetch_limit": 10,
-          "min_score": 60
+          "min_score": 50
+        },
+        {
+          "subreddit": "ChatGPTCoding",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 10,
+          "min_score": 20
+        },
+        {
+          "subreddit": "MachineLearning",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 10,
+          "min_score": 50
         }
       ],
       "users": [],
@@ -107,11 +120,11 @@
     }
   },
   "filtering": {
-    "ai_score_threshold": 8.0,
+    "ai_score_threshold": 7.0,
     "time_window_hours": 24
   },
   "webhook": {
-    "enabled": true,
+    "enabled": false,
     "url_env": "HORIZON_WEBHOOK_URL",
     "delivery": "summary_and_items",
     "overview_position": "last",
