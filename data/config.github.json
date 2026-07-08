@@ -23,8 +23,8 @@
       },
       {
         "type": "repo_releases",
-        "owner": "langchain-ai",
-        "repo": "langchain",
+        "owner": "browser-use",
+        "repo": "browser-use",
         "enabled": true
       },
       {
@@ -59,22 +59,22 @@
         "category": "github-trending"
       },
       {
+        "name": "GitHub Trending - Python",
+        "url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/python.xml",
+        "enabled": true,
+        "category": "github-trending"
+      },
+      {
+        "name": "Show HN (self-made tools)",
+        "url": "https://hnrss.org/show",
+        "enabled": true,
+        "category": "show-hn"
+      },
+      {
         "name": "Hugging Face Blog",
         "url": "https://huggingface.co/blog/feed.xml",
         "enabled": true,
         "category": "ai-models"
-      },
-      {
-        "name": "TechCrunch",
-        "url": "https://techcrunch.com/feed/",
-        "enabled": true,
-        "category": "tech-startups"
-      },
-      {
-        "name": "The Verge",
-        "url": "https://www.theverge.com/rss/index.xml",
-        "enabled": true,
-        "category": "tech-news"
       }
     ],
     "reddit": {
@@ -97,12 +97,12 @@
           "min_score": 20
         },
         {
-          "subreddit": "MachineLearning",
+          "subreddit": "AI_Agents",
           "enabled": true,
           "sort": "hot",
           "time_filter": "day",
           "fetch_limit": 10,
-          "min_score": 50
+          "min_score": 15
         }
       ],
       "users": [],
@@ -117,6 +117,18 @@
           "fetch_limit": 20
         }
       ]
+    },
+    "twitter": {
+      "enabled": false,
+      "users": [
+        "precis0x",
+        "zjp1997720"
+      ],
+      "fetch_limit": 10,
+      "fetch_reply_text": false,
+      "max_replies_per_tweet": 3,
+      "max_tweets_to_expand": 10,
+      "reply_min_likes": 5
     }
   },
   "filtering": {
